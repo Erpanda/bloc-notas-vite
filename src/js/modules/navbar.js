@@ -8,7 +8,7 @@ function generarNavbar(paginaActual = '', estaAutenticado = false) {
         <nav class="navbar fixed-top bg-dark border-bottom border-body navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center gap-2 text-light" href="index">
-                    <img src="../../public/log.png" alt="logo" width="40" height="40">
+                    <img src="../../../public/log.png" alt="logo" width="40" height="40">
                     <!-- d-none d-sm-inline: permite ocultar algo en dispositivos pequeños y mostrarlo en dispositivos grandes (span) -->
                     <!-- d-none d-lg-block: lo mismo pero en dispositivos grandes (div) -->
                     <span class="fs-5 fw-bold d-none d-sm-inline">BlocNotas</span>
