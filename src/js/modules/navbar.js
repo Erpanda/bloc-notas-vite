@@ -62,7 +62,7 @@ function cargarNavbar(paginaActual = '', estaAutenticado = false) {
         if (btnLogout) {
             btnLogout.addEventListener('click', manejarLogout);
         }
-    }s
+    }
 }
 
 // Cerrar sesión (function)
