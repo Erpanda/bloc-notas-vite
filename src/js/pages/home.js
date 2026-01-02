@@ -4,5 +4,5 @@ import { redirigirSiAutenticado } from '../utils/helpers.js';
 redirigirSiAutenticado();
 
 document.addEventListener('DOMContentLoaded', () => {
-    cargarFooter();
+    cargarFooter('home');
 });

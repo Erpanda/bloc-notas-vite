@@ -1,4 +1,4 @@
-function generarFooter() {
+function generarFooter(paginaActual = '') {
     const anioActual = new Date().getFullYear();
 
     const footerHTML = `
@@ -16,8 +16,8 @@ function generarFooter() {
                     <div class="col-6 col-md-4 text-center text-md-start">
                         <h6 class="fw-semibold">Navegación</h6>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="crearTarea" class="text-secondary text-decoration-none">Crear nota</a></li>
-                            <li class="mb-2"><a href="dashboard" class="text-secondary text-decoration-none">Mis notas</a></li>
+                            <li class="mb-2"><a href="${paginaActual === 'home' ? '#' : 'crearTarea'}" class="text-secondary text-decoration-none">Crear nota</a></li>
+                            <li class="mb-2"><a href="${paginaActual === 'home' ? '#' : 'dashboard'}" class="text-secondary text-decoration-none">Mis notas</a></li>
                         </ul>
                     </div>
                     
@@ -41,10 +41,10 @@ function generarFooter() {
 }
 
 // Cargar footer en el elemento con id="footer"
-function cargarFooter() {
+function cargarFooter(paginaActual = '') {
     const footerContainer = document.getElementById('footer');
     if (footerContainer) {
-        footerContainer.innerHTML = generarFooter();
+        footerContainer.innerHTML = generarFooter(paginaActual);
     }
 }
 
