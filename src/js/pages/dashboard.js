@@ -134,7 +134,7 @@ async function generarContenedorNotas() {
                 <div class="d-flex justify-content-between align-items-center border-bottom border-3 border-black pb-2 mb-4 w-100">
                     <h2 class="display-6 fw-bold mb-0">Estadísticas</h2>
                     <button class="btn btn-primary d-flex align-items-center gap-2"
-                        onclick="#generarPDF()">
+                        onclick="#">
                         <i class="bi bi-file-earmark-pdf-fill"></i>
                         Generar PDF
                     </button>
