@@ -62,7 +62,7 @@ function cargarNavbar(paginaActual = '', estaAutenticado = false) {
         if (btnLogout) {
             btnLogout.addEventListener('click', manejarLogout);
         }
-    }
+    }s
 }
 
 // Cerrar sesión (function)
@@ -70,7 +70,7 @@ async function manejarLogout() {
     const resultado = await cerrarSesion();
     
     if (resultado.success) {
-        window.location.href = 'index';
+        window.location.href = '/';
     } else {
         alert('Error al cerrar sesión. Intenta de nuevo.');
     }

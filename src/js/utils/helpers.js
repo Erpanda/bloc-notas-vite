@@ -36,7 +36,7 @@ function verificarAutenticacion() {
 // Redirigir si no está autenticado
 function protegerRuta() {
     if (!verificarAutenticacion()) {
-        window.location.href = 'index';
+        window.location.href = '/';
     }
 }
 
