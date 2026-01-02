@@ -7,7 +7,7 @@ function generarNavbar(paginaActual = '', estaAutenticado = false) {
     const navbarHTML = `
         <nav class="navbar fixed-top bg-dark border-bottom border-body navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center gap-2 text-light" href="misNotas">
+                <a class="navbar-brand d-flex align-items-center gap-2 text-light" href="dashboard">
                     <img src="/log.png" alt="logo" width="40" height="40">
                     <!-- d-none d-sm-inline: permite ocultar algo en dispositivos pequeños y mostrarlo en dispositivos grandes (span) -->
                     <!-- d-none d-lg-block: lo mismo pero en dispositivos grandes (div) -->
