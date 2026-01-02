@@ -121,8 +121,7 @@ window.eliminarTareaClick = async function(taskId) {
 
 // Editar tarea
 window.editarTareaClick = async function(taskId) {
-    window.location.href = `crearTarea.html?id=${taskId}`;
-
+    window.location.href = `crearTarea?id=${taskId}`;
 };
 
 async function generarContenedorNotas() {
