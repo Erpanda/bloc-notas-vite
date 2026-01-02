@@ -1,9 +1,10 @@
 import { protegerRuta, mostrarError, mostrarExito } from '../utils/helpers.js';
-import { crearTarea } from '../services/taskService.js';
+import { crearTarea, obtenerTareaPorId, actualizarTarea } from '../services/taskService.js';
 import { validarTituloTarea, validarDescripcionTarea, validarFechaLimiteTarea } from '../utils/validators.js';
 import { cargarNavbar } from '../modules/navbar.js';
 import { cargarFooter } from '../modules/footer.js';
 
+const taskId = new URLSearchParams(window.location.search).get('id');
 protegerRuta();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,8 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 async function cargarFormularioTarea() {
     const resultado = generarFormularioTarea();
 
-    if (resultado.succes) return;
-    else mostrarError('Error al cargar el formulario');
+    if (resultado.success) {
+        if (taskId) await cargarDatosTarea();
+    } else mostrarError('Error al cargar el formulario');
 };
 
 async function manejarCrearTarea(e) {
@@ -47,15 +49,25 @@ async function manejarCrearTarea(e) {
         return;
     }
 
-    // Crear tarea
-    const resultado = await crearTarea(titulo, descripcion || null, fecha || null);
+    // Crear o actualizar tarea
+    const accion = taskId
+        ? actualizarTarea(taskId, titulo, descripcion || null, fecha || null)
+        : crearTarea(titulo, descripcion || null, fecha || null);
+
+    const mensajeExito = taskId
+        ? 'Tarea actualizada exitosamente'
+        : 'Tarea creada exitosamente';
+
+    const resultado = await accion;
 
     if (resultado.success) {
-        mostrarExito('Tarea creada exitosamente');
+        mostrarExito(mensajeExito);
         e.target.reset();
+        if (taskId) window.location.href = 'dashboard';
     } else {
-        mostrarError('Error al crear la tarea');
+    mostrarError(`Error al ${taskId ? 'actualizar' : 'crear'} la tarea`);
     }
+
 }
 
 function generarFormularioTarea() {
@@ -122,7 +134,8 @@ function generarFormularioTarea() {
                                     Cancelar
                                 </button>
                                 <button type="submit" class="btn btn-primary btn-lg px-5 order-md-1">
-                                    <i class="bi bi-check2 me-2"></i>Crear Tarea
+                                    <i class="bi bi-check2 me-2"></i>
+                                    ${taskId ? 'Actualizar Tarea' : 'Crear Tarea'}
                                 </button>
                             </div>
                         <div id="errorMessage" class="alert alert-danger d-none mt-3 mb-0" role="alert"></div>
@@ -134,8 +147,21 @@ function generarFormularioTarea() {
             </div>
         `;
 
-        return { succes: true };
+        return { success: true };
     } else {
-        return { succes: false }
+        return { success: false }
+    }
+}
+
+async function cargarDatosTarea() {
+    const resultado = await obtenerTareaPorId(taskId);
+    
+    if (resultado.success) {
+        const tarea = resultado.task;
+        document.getElementById('tituloTarea').value = tarea.title || '';
+        document.getElementById('descripcionTarea').value = tarea.description || '';
+        document.getElementById('fechaLimite').value = tarea.due_date || '';
+    } else {
+        mostrarError('Error al cargar la tarea');
     }
 }

@@ -1,5 +1,5 @@
 import { protegerRuta, mostrarError, mostrarExito } from '../utils/helpers.js';
-import { obtenerTareas, completarTarea, eliminarTarea, obtenerEstadisticasTareas } from '../services/taskService.js';
+import { obtenerTareas, completarTarea, eliminarTarea, obtenerTareaPorId, obtenerEstadisticasTareas } from '../services/taskService.js';
 import { cargarNavbar } from '../modules/navbar.js';
 import { cargarFooter } from '../modules/footer.js';
 
@@ -57,6 +57,7 @@ async function mostrarTareas(tareas) {
         `;
         return;
     }
+    
 
     contenedor.innerHTML = tareas.map(tarea => `
         <div class="col">
@@ -116,6 +117,12 @@ window.eliminarTareaClick = async function(taskId) {
     } else {
         mostrarError('Error al eliminar la tarea');
     }
+};
+
+// Editar tarea
+window.editarTareaClick = async function(taskId) {
+    window.location.href = `crearTarea.html?id=${taskId}`;
+
 };
 
 async function generarContenedorNotas() {
