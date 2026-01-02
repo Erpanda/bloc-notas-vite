@@ -51,8 +51,8 @@ async function manejarCrearTarea(e) {
 
     // Crear o actualizar tarea
     const accion = taskId
-        ? actualizarTarea(taskId, titulo, descripcion || null, fecha || null)
-        : crearTarea(titulo, descripcion || null, fecha || null);
+        ? actualizarTarea(taskId, titulo, descripcion, fecha)
+        : crearTarea(titulo, descripcion, fecha);
 
     const mensajeExito = taskId
         ? 'Tarea actualizada exitosamente'
@@ -65,7 +65,7 @@ async function manejarCrearTarea(e) {
         e.target.reset();
         if (taskId) window.location.href = 'dashboard';
     } else {
-    mostrarError(`Error al ${taskId ? 'actualizar' : 'crear'} la tarea`);
+        mostrarError(`Error al ${taskId ? 'actualizar' : 'crear'} la tarea`);
     }
 
 }
