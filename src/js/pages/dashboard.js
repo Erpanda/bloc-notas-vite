@@ -133,12 +133,9 @@ async function generarContenedorNotas() {
             <div class="mb-4" id="contenedorEstadisticas">
                 <div class="d-flex justify-content-between align-items-center border-bottom border-3 border-black pb-2 mb-4 w-100">
                     <h2 class="display-6 fw-bold mb-0">Estadísticas</h2>
-                    <button class="btn btn-primary d-flex align-items-center gap-2" onclick="generarPDF()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M5.5 7.5A.5.5 0 0 1 6 7h1a.5.5 0 0 1 0 1H6.5v1H7a.5.5 0 0 1 0 1H6.5v1H7a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5v-4z"/>
-                            <path d="M8.5 7h1.5a1.5 1.5 0 0 1 0 3H9v1.5a.5.5 0 0 1-1 0v-4A.5.5 0 0 1 8.5 7zM9 9h1a.5.5 0 0 0 0-1H9v1z"/>
-                            <path d="M3 0h7l4 4v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1z"/>
-                        </svg>
+                    <button class="btn btn-primary d-flex align-items-center gap-2"
+                        onclick="generarPDF()">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
                         Generar PDF
                     </button>
                 </div>
