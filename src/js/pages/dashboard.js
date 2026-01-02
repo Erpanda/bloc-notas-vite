@@ -84,7 +84,8 @@ async function mostrarTareas(tareas) {
                         <button class="btn btn-sm btn-danger" onclick="eliminarTareaClick('${tarea.id}')">
                             Eliminar
                         </button>
-                        <button class="btn btn-sm btn-warning" onclick="editarTareaClick('${tarea.id}')">
+                        <button class="btn btn-sm btn-warning" onclick="editarTareaClick('${tarea.id}')"
+                            ${tarea.completed ? 'disabled' : ''}>
                             Editar
                         </button>
                     </div>
