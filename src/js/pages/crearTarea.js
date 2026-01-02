@@ -67,7 +67,12 @@ async function manejarCrearTarea(e) {
     if (resultado.success) {
         mostrarExito(mensajeExito);
         e.target.reset();
-        if (taskId) window.location.href = 'dashboard';
+
+        if (taskId) {
+            setTimeout(() => {
+            window.location.href = 'dashboard';
+            }, 2000);
+        }
     } else {
         mostrarError(`Error al ${taskId ? 'actualizar' : 'crear'} la tarea`);
     }
