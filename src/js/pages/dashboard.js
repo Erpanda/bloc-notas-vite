@@ -63,12 +63,12 @@ async function mostrarTareas(tareas) {
         <div class="col">
             <div class="card mb-3 border-start ${tarea.completed ? 'border-success border-4 bg-light' : 'border-warning border-4'}">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex justify-content-between align-items-start overflow-hidden">
                         <div class="flex-grow-1">
                             <h5 class="card-title ${tarea.completed ? 'text-decoration-line-through text-muted' : ''} fw-bold">
                                 ${tarea.title}
                             </h5>
-                            <p class="card-text text-muted overflow-hidden">${tarea.description ? tarea.description : 'Sin descripción'}</p>
+                            <p class="card-text text-muted">${tarea.description ? tarea.description : 'Sin descripción'}</p>
                             <p class="card-text text-muted">Fecha límite: <span class="text-black fw-bold">${tarea.due_date ? new Date(tarea.due_date).toISOString().split('T')[0] : 'Sin fecha límite'}</span></p>
                             <small class="${tarea.completed ? 'text-success' : 'text-muted'} fs-6">Estado: 
                                 ${tarea.completed ? 'Completada' : 'Pendiente'}
