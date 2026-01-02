@@ -51,7 +51,7 @@ async function manejarCrearTarea(e) {
 
     // Crear o actualizar tarea
     const accion = taskId
-        ? actualizarTarea(taskId, titulo, descripcion, fecha)
+        ? actualizarTarea(taskId, [titulo, descripcion, fecha])
         : crearTarea(titulo, descripcion, fecha);
 
     const mensajeExito = taskId
