@@ -160,7 +160,8 @@ async function cargarDatosTarea() {
         const tarea = resultado.task;
         document.getElementById('tituloTarea').value = tarea.title || '';
         document.getElementById('descripcionTarea').value = tarea.description || '';
-        document.getElementById('fechaLimite').value = tarea.due_date || '';
+        document.getElementById('fechaLimite').value =
+            tarea.due_date ? tarea.due_date.split('T')[0] : '';
     } else {
         mostrarError('Error al cargar la tarea');
     }
