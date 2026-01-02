@@ -131,8 +131,8 @@ async function generarContenedorNotas() {
     if (contenedorGeneral) {
         contenedorGeneral.innerHTML = `
             <div class="mb-4" id="contenedorEstadisticas">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h2 class="mb-4 display-6 fw-bold border-bottom border-3 border-black pb-2">Estadísticas</h2>
+                <div class="d-flex justify-content-between align-items-center border-bottom border-3 border-black pb-2">
+                    <h2 class="mb-4 display-6 fw-bold">Estadísticas</h2>
                     <button class="btn btn-primary" onclick="#generarPDF()">Generar PDF</button>
                 </div>
                 
